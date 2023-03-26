@@ -21,7 +21,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'i18next',
-        'react-hooks',
+        'react-hooks', // react portal
     ],
     rules: {
         'react/jsx-indent': [2, 4],
