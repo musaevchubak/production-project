@@ -3,6 +3,8 @@
     " A aliquid consequuntur cumque dolor enim": " A aliquid consequuntur cumque dolor enim"
   },
   "Update page": "Update page",
+  "decrement": "decrement",
+  "increment": "increment",
   "sdafsad": "sdafsad",
   "throw error": "throw error",
   "Войти": "Войти",
@@ -14,7 +16,5 @@
   "Переключить": "Переключить",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
   "Страница не найдена": "Страница не найдена",
-  "Язык": "Язык",
-  "increment": "increment",
-  "decrement": "decrement"
+  "Язык": "Язык"
 }
