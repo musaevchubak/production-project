@@ -8,12 +8,14 @@ import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;
-    children?: ReactNode,
+    children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
 }
 
-export const Modal = (props : ModalProps) => {
+const ANIMATION_DELAY = 300;
+
+export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
@@ -21,26 +23,27 @@ export const Modal = (props : ModalProps) => {
         onClose,
     } = props;
 
-    const ANIMATION_DELAY = 300;
     const [isClosing, setIsClosing] = useState(false);
-    const timeRef = useRef <ReturnType<typeof setTimeout>>();
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const { theme } = useTheme();
 
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
-            timeRef.current = setTimeout(() => {
+            timerRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
             }, ANIMATION_DELAY);
         }
     }, [onClose]);
-    // Новые ссылки
+
+    // Новые ссылки!!!
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler();
         }
     }, [closeHandler]);
+
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
@@ -49,15 +52,18 @@ export const Modal = (props : ModalProps) => {
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
         }
+
         return () => {
-            clearTimeout(timeRef.current);
+            clearTimeout(timerRef.current);
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
+
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
+
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className, theme])}>
@@ -71,6 +77,5 @@ export const Modal = (props : ModalProps) => {
                 </div>
             </div>
         </Portal>
-
     );
 };
