@@ -26,11 +26,11 @@ export const loginSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(loginByUserName.fulfilled, (state, action) => {
+            .addCase(loginByUserName.fulfilled, (state) => {
                 state.isLoading = false;
             })
             .addCase(loginByUserName.rejected, (state, action) => {
-                state.isLoading = true;
+                state.isLoading = false;
                 state.error = action.payload;
             });
     },
