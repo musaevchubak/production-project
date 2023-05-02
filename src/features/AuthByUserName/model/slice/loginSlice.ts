@@ -4,7 +4,7 @@ import { LoginSchema } from '../types/loginSchema';
 
 const initialState: LoginSchema = {
     isLoading: false,
-    username: '',
+    userName: '',
     password: '',
 };
 
@@ -14,7 +14,7 @@ export const loginSlice = createSlice({
     initialState,
     reducers: {
         setUserName: (state, action: PayloadAction<string>) => {
-            state.username = action.payload;
+            state.userName = action.payload;
         },
         setPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload;

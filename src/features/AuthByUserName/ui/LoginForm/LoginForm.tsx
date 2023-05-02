@@ -9,11 +9,13 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
+import {
+    getLoginUserName,
+} from 'features/AuthByUserName/model/selectors/getLoginUserName/getLoginUserName';
+import { loginByUserName } from 'features/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
@@ -33,7 +35,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
-    const onChangeUsername = useCallback((value: string) => {
+    const onChangeUserName = useCallback((value: string) => {
         dispatch(loginActions.setUserName(value));
     }, [dispatch]);
 
@@ -58,7 +60,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                     type="text"
                     className={cls.input}
                     placeholder={t('Введите username')}
-                    onChange={onChangeUsername}
+                    onChange={onChangeUserName}
                     value={userName}
                 />
                 <Input
