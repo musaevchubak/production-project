@@ -42,6 +42,7 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
     rejectValue: T;
     extra: ThunkExtraArg;
+    state: StateSchema;
 }
 
 // тут у нас все типы касательно store стейта редакса
