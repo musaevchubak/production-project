@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ProfileCard } from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import avatar from 'shared/assets/tests/storybook.jpg';
-import { ProfileCard } from './ProfileCard';
 
 export default {
     title: 'entities/ProfileCard',
@@ -21,8 +21,8 @@ Primary.args = {
         userName: 'admin',
         age: 22,
         country: Country.Ukraine,
+        lastName: 'Hello',
         first: 'asd',
-        lastName: 'hello',
         city: 'asf',
         currency: Currency.USD,
         avatar,

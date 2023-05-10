@@ -96,12 +96,12 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     data={formData}
                     error={error}
                     isLoading={isLoading}
-                    readOnly={readOnly}
-                    onChangeFirstName={onChangeFirstName}
-                    onChangeLastName={onChangeLastName}
+                    readonly={readOnly}
+                    onChangeFirstname={onChangeFirstName}
+                    onChangeLastname={onChangeLastName}
                     onChangeCity={onChangeCity}
                     onChangeAge={onChangeAge}
-                    onChangeUserName={onChangeUserName}
+                    onChangeUsername={onChangeUserName}
                     onChangeAvatar={onChangeAvatar}
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
