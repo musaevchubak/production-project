@@ -6,7 +6,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { memo, useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -22,6 +22,10 @@ import {
 import {
     ArticleTextBlockComponent,
 } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import {
+    fetchCommentsByArticleId,
+} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import {
     getArticleDetailsData,
@@ -44,7 +48,7 @@ const reducers: ReducersList = {
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { className, id } = props;
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
+    const dispatch = useDispatch();
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
@@ -67,6 +71,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             dispatch(fetchArticleById(id));
         }
     }, [dispatch, id]);
+
     let content;
     if (isLoading) {
         content = (
