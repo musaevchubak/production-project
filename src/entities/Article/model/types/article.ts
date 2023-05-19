@@ -46,10 +46,11 @@ export enum ArticleView {
     BIG = 'BIG',
     SMALL = 'SMALL'
 }
+
 export interface Article {
     user: User;
-    id: string;
     title: string;
+    id: string;
     subtitle: string;
     img: string;
     views: number;
