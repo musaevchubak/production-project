@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
 import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
-import { getUserAuthData } from 'entities/User';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
@@ -20,7 +19,6 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
-    const userData = useSelector(getUserAuthData);
 
     const onBackToList = useCallback(() => {
         navigate(RoutePath.articles);

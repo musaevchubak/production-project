@@ -35,14 +35,13 @@ const reducers: ReducersList = {
 };
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
+    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlePageIsLoading);
     const view = useSelector(getArticlePageView);
     const inited = useSelector(getArticlePageInited);
     const error = useSelector(getArticlePageError);
-
     const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
