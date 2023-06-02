@@ -49,7 +49,7 @@ module.exports = {
                 {
                     markupOnly: true,
                     ignoreAttribute:
-                        ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
+                        ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'border'],
                 }],
         'max-len': ['error', { ignoreComments: true, code: 140 }],
         'jsx-a11y/no-static-element-interactions': 'off',
