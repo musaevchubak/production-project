@@ -1,7 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, { ReactNode } from 'react';
 import { useModal } from 'shared/lib/hooks/useModal/useModal';
-import theme from '@storybook/addon-interactions/dist/ts3.9/theme';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
