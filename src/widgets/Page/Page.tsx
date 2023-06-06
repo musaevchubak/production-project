@@ -1,5 +1,5 @@
 import {
-    memo, MutableRefObject, ReactNode, useRef, UIEvent,
+    memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -26,12 +26,18 @@ export const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
+    const scrollPosition = useSelector(
+        (state: StateSchema) => getUIScrollByPath(state, pathname),
+    );
 
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
         callback: onScrollEnd,
+    });
+
+    useInitialEffect(() => {
+        wrapperRef.current.scrollTop = scrollPosition;
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
@@ -41,9 +47,6 @@ export const Page = memo((props: PageProps) => {
         }));
     }, 500);
 
-    useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
-    });
     return (
         <main
             ref={wrapperRef}
