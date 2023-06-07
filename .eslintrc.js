@@ -60,7 +60,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'production-best-project-plugin/path-checker': 'error',
+        'production-best-project-plugin/path-checker': ['error', {alias: '@'}],
     },
     globals: {
         __IS_DEV__: true,
