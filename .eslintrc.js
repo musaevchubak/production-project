@@ -51,7 +51,7 @@ module.exports = {
                     ignoreAttribute:
                         ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'border'],
                 }],
-        'max-len': ['error', { ignoreComments: true, code: 140 }],
+        'max-len': ['error', { ignoreComments: true, code: 150 }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error',
@@ -61,7 +61,14 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'production-best-project-plugin/path-checker': ['error', { alias: '@' }],
-        'production-best-project-plugin/public-api-imports': ['error', { alias: '@' }],
+        'production-best-project-plugin/public-api-imports':
+            [
+                'error',
+                {
+                    alias: '@',
+                    testFilesPatterns:
+                        ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+                }],
     },
     globals: {
         __IS_DEV__: true,
