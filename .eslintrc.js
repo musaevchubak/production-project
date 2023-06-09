@@ -61,6 +61,14 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'production-best-project-plugin/path-checker': ['error', { alias: '@' }],
+        'production-best-project-plugin/layer-imports':
+            [
+                'error',
+                {
+                    alias: '@',
+                    ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+                },
+            ],
         'production-best-project-plugin/public-api-imports':
             [
                 'error',
