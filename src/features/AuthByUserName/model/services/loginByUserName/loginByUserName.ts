@@ -9,7 +9,7 @@ interface LoginByUserNameProps {
 }
 
 export const loginByUserName = createAsyncThunk<User, LoginByUserNameProps, ThunkConfig<string>>(
-    'login/loginByUserName',
+    'common/loginByUserName',
     async (authData, thunkApi) => {
         const { extra, dispatch, rejectWithValue } = thunkApi;
         try {
