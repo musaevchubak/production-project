@@ -16,13 +16,19 @@ export const Counter = () => {
         decrement();
     };
 
-    const handleAdd = () => {
+    const handleAddFive = () => {
         add(5);
     };
 
     return (
         <div>
             <h1 data-testid="value-title">{counterValue}</h1>
+            <Button
+                onClick={handleAddFive}
+                data-testid="increment-btn5"
+            >
+                {t('add5')}
+            </Button>
             <Button
                 onClick={handleInc}
                 data-testid="increment-btn"
@@ -34,12 +40,6 @@ export const Counter = () => {
                 onClick={handleDec}
             >
                 {t('decrement')}
-            </Button>
-            <Button
-                data-testid="decrement-btn"
-                onClick={handleAdd}
-            >
-                {t('add')}
             </Button>
         </div>
     );
