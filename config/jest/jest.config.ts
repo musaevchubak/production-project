@@ -3,23 +3,18 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from 'path';
+import * as path from 'path';
 
 export default {
-    // All imported modules in your test should be mocked automatically
-    // automock: false,
-
-    // Stop running test after `n` failures
-    // bail: 0,
-
-    // The directory where Jest should store its cached dependency information
-    // cacheDirectory: "/tmp/jest_rs",
-
-    // Automatically clear mock calls, instances and results before every test
+    globals: {
+        __IS_DEV__: true,
+        __API__: '',
+        __PROJECT__: 'jest',
+    },
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
-        '/node_modules/',
+        '\\\\node_modules\\\\',
     ],
     moduleFileExtensions: [
         'js',
@@ -32,16 +27,17 @@ export default {
     moduleDirectories: [
         'node_modules',
     ],
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
     modulePaths: [
         '<rootDir>src',
     ],
+    testMatch: [
+        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
     rootDir: '../../',
-    setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
-        '\\.(s?css)$': 'identity-obj-proxy',
+        '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^@/(.*)$': '<rootDir>/src/$1',
     },
@@ -94,15 +90,7 @@ export default {
     // A path to a module which exports an async function that is triggered once after all test suites
     // globalTeardown: undefined,
 
-    // A set of global variables that need to be available in all test environments
-    globals: {
-        __IS_DEV__: true,
-        __API__: '',
-        __PROJECT__: 'jest',
-
-    },
-
-    // The maximum amount of workers used to run your test. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
+    // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",
 
     // An array of directory names to be searched recursively up from the requiring module's location
@@ -124,7 +112,7 @@ export default {
     // A preset that is used as a base for Jest's configuration
     // preset: undefined,
 
-    // Run test from one or more projects
+    // Run tests from one or more projects
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
@@ -142,10 +130,12 @@ export default {
     // Automatically restore mock state and implementation before every test
     // restoreMocks: false,
 
-    // The root directory that Jest should scan for test and modules within
-    // rootDir: undefined,
+    // The root directory that Jest should scan for tests and modules within
 
     // A list of paths to directories that Jest should use to search for files in
+    // roots: [
+    //   "<rootDir>"
+    // ],
 
     // Allows you to use a custom runner instead of Jest's default test runner
     // runner: "jest-runner",
@@ -172,9 +162,9 @@ export default {
 
     // The glob patterns Jest uses to detect test files
 
-    // An array of regexp pattern strings that are matched against all test paths, matched test are skipped
+    // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [
-    //   "/node_modules/"
+    //   "\\\\node_modules\\\\"
     // ],
 
     // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -197,8 +187,8 @@ export default {
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
     // transformIgnorePatterns: [
-    //   "/node_modules/",
-    //   "\\.pnp\\.[^\\/]+$"
+    //   "\\\\node_modules\\\\",
+    //   "\\.pnp\\.[^\\\\]+$"
     // ],
 
     // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
@@ -207,7 +197,7 @@ export default {
     // Indicates whether each individual test should be reported during the run
     // verbose: undefined,
 
-    // An array of regexp patterns that are matched against all source file paths before re-running test in watch mode
+    // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
     // watchPathIgnorePatterns: [],
 
     // Whether to use watchman for file crawling
