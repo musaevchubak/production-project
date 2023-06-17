@@ -8,6 +8,8 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -26,15 +28,13 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
         'unused-imports/no-unused-imports': 'error',
-        indent: [2, 4],
-        'react/jsx-filename-extension':
-            [2, {
-                extensions:
-                    ['.js', '.jsx', '.tsx'],
-            }],
+        'react/jsx-filename-extension': [
+            2,
+            {
+                extensions: ['.js', '.jsx', '.tsx'],
+            },
+        ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -46,13 +46,24 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string':
-            ['error',
-                {
-                    markupOnly: true,
-                    ignoreAttribute:
-                        ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'border'],
-                }],
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: [
+                    'as',
+                    'role',
+                    'data-testid',
+                    'to',
+                    'target',
+                    'justify',
+                    'align',
+                    'direction',
+                    'gap',
+                    'border',
+                ],
+            },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 150 }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
@@ -62,23 +73,29 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'production-best-project-plugin/path-checker': ['error', { alias: '@' }],
-        'production-best-project-plugin/layer-imports':
-            [
-                'error',
-                {
-                    alias: '@',
-                    ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-                },
-            ],
-        'production-best-project-plugin/public-api-imports':
-            [
-                'error',
-                {
-                    alias: '@',
-                    testFilesPatterns:
-                        ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
-                }],
+        'production-best-project-plugin/path-checker': [
+            'error',
+            { alias: '@' },
+        ],
+        'production-best-project-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        'production-best-project-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     },
     globals: {
         __IS_DEV__: true,

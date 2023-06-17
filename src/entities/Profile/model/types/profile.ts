@@ -5,10 +5,10 @@ export interface Profile {
     id?: string;
     first?: string;
     lastName?: string;
-    age?: number,
-    currency?: Currency,
+    age?: number;
+    currency?: Currency;
     country?: Country;
-    city?: string,
+    city?: string;
     userName?: string;
     avatar?: string;
 }

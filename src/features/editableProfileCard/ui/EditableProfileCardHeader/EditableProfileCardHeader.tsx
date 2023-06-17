@@ -11,45 +11,45 @@ import { getUserAuthData } from '@/entities/User';
 import { profileActions } from '../../model/slice/profileSlice';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import {
-    getProfileReadOnly,
-} from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
+import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
-    const {
-        className,
-    } = props;
+export const EditableProfileCardHeader = memo(
+    (props: EditableProfileCardHeaderProps) => {
+        const { className } = props;
 
-    const { t } = useTranslation('profile');
-    const authData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
-    const readonly = useSelector(getProfileReadOnly);
-    const dispatch = useAppDispatch();
+        const { t } = useTranslation('profile');
+        const authData = useSelector(getUserAuthData);
+        const profileData = useSelector(getProfileData);
+        const canEdit = authData?.id === profileData?.id;
+        const readonly = useSelector(getProfileReadOnly);
+        const dispatch = useAppDispatch();
 
-    const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadOnly(false));
-    }, [dispatch]);
+        const onEdit = useCallback(() => {
+            dispatch(profileActions.setReadOnly(false));
+        }, [dispatch]);
 
-    const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.canselEdit());
-    }, [dispatch]);
+        const onCancelEdit = useCallback(() => {
+            dispatch(profileActions.canselEdit());
+        }, [dispatch]);
 
-    const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        const onSave = useCallback(() => {
+            dispatch(updateProfileData());
+        }, [dispatch]);
 
-    return (
-        <HStack max justify="between" className={classNames('', {}, [className])}>
-            <Text title={t('Профиль')} />
-            {canEdit && (
-                <div>
-                    {readonly
-                        ? (
+        return (
+            <HStack
+                max
+                justify="between"
+                className={classNames('', {}, [className])}
+            >
+                <Text title={t('Профиль')} />
+                {canEdit && (
+                    <div>
+                        {readonly ? (
                             <Button
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onEdit}
@@ -57,8 +57,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                             >
                                 {t('Редактировать')}
                             </Button>
-                        )
-                        : (
+                        ) : (
                             <HStack gap="8">
                                 <Button
                                     theme={ButtonTheme.OUTLINE_RED}
@@ -76,8 +75,9 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                                 </Button>
                             </HStack>
                         )}
-                </div>
-            )}
-        </HStack>
-    );
-});
+                    </div>
+                )}
+            </HStack>
+        );
+    },
+);

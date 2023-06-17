@@ -15,25 +15,22 @@ interface SelectProps<T extends string> {
     readonly?: boolean;
 }
 
-export const Select = <T extends string> (props: SelectProps<T>) => {
-    const {
-        className,
-        label,
-        options,
-        value,
-        onChange,
-        readonly,
-    } = props;
+export const Select = <T extends string>(props: SelectProps<T>) => {
+    const { className, label, options, value, onChange, readonly } = props;
 
-    const optionList = useMemo(() => options?.map((opt) => (
-        <option
-            className={cls.option}
-            value={opt.value}
-            key={opt.value}
-        >
-            {opt.content}
-        </option>
-    )), [options]);
+    const optionList = useMemo(
+        () =>
+            options?.map((opt) => (
+                <option
+                    className={cls.option}
+                    value={opt.value}
+                    key={opt.value}
+                >
+                    {opt.content}
+                </option>
+            )),
+        [options],
+    );
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         if (onChange) {
@@ -42,11 +39,7 @@ export const Select = <T extends string> (props: SelectProps<T>) => {
     };
     return (
         <div className={classNames(cls.Select, {}, [className])}>
-            {label && (
-                <span className={cls.label}>
-                    {`${label}>`}
-                </span>
-            )}
+            {label && <span className={cls.label}>{`${label}>`}</span>}
             <select
                 disabled={readonly}
                 className={cls.select}

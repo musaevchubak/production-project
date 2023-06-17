@@ -10,12 +10,8 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-    getLoginUserName,
-} from '../../model/selectors/getLoginUserName/getLoginUserName';
-import {
-    loginByUserName,
-} from '../../model/services/loginByUserName/loginByUserName';
+import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
+import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -39,13 +35,19 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
-    const onChangeUserName = useCallback((value: string) => {
-        dispatch(loginActions.setUserName(value));
-    }, [dispatch]);
+    const onChangeUserName = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUserName(value));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUserName({ userName, password }));
@@ -55,13 +57,15 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }, [onSuccess, dispatch, password, userName]);
 
     return (
-        <DynamicModuleLoader
-            removeAfterUnmount
-            reducers={initialReducers}
-        >
+        <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
-                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
+                {error && (
+                    <Text
+                        text={t('Вы ввели неверный логин или пароль')}
+                        theme={TextTheme.ERROR}
+                    />
+                )}
                 <Input
                     autofocus
                     type="text"

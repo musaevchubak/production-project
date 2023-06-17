@@ -14,15 +14,7 @@ function BugButton() {
     const onThrow = () => {
         setError(true);
     };
-    return (
-        <Button
-            onClick={onThrow}
-        >
-            {t('throw error')}
-
-        </Button>
-
-    );
+    return <Button onClick={onThrow}>{t('throw error')}</Button>;
 }
 
 export default BugButton;

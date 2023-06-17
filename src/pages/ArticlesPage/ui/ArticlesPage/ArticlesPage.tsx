@@ -9,13 +9,9 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import {
-    initArticlesPage,
-} from '../../model/services/initArticlesPage/initArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
-import {
-    fetchNextArticlesPage,
-} from '../../model/services/fetchNextArticlesPage/fetchArticlesPage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 
 import cls from './ArticlesPage.module.scss';

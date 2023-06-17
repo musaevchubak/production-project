@@ -6,7 +6,6 @@ export enum TextTheme {
     PRIMARY = 'primary',
     INVERTED = 'inverted',
     ERROR = 'error',
-
 }
 
 export enum TextAlign {
@@ -69,10 +68,7 @@ export const Text = memo((props: TextProps) => {
                 </HeaderTag>
             )}
             {text && (
-                <p
-                    className={cls.text}
-                    data-testid={`${dataTestId}.Paragraph`}
-                >
+                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
                     {text}
                 </p>
             )}

@@ -32,9 +32,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
@@ -47,7 +50,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <HStack data-testid="AddCommentForm" justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>
+            <HStack
+                data-testid="AddCommentForm"
+                justify="between"
+                max
+                className={classNames(cls.AddCommentForm, {}, [className])}
+            >
                 <Input
                     data-testid="AddCommentForm.Input"
                     placeholder={t('Введите текст комментария')}
@@ -64,7 +72,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                 </Button>
             </HStack>
         </DynamicModuleLoader>
-
     );
 });
 

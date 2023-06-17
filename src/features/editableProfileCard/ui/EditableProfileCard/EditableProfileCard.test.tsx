@@ -38,48 +38,77 @@ const options = {
 describe('features/EditableProfileCard', () => {
     test('Режим readonly переключиться', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-        expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
+        expect(
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+        ).toBeInTheDocument();
     });
 
     test('При отмене значения должны обнуляться', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
         await userEvent.clear(screen.getByTestId('ProfileCard.lastName'));
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
-        await userEvent.type(screen.getByTestId('ProfileCard.lastName'), 'user');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstName'),
+            'user',
+        );
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.lastName'),
+            'user',
+        );
 
         expect(screen.getByTestId('ProfileCard.firstName')).toHaveValue('user');
         expect(screen.getByTestId('ProfileCard.lastName')).toHaveValue('user');
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+        );
 
-        expect(screen.getByTestId('ProfileCard.firstName')).toHaveValue('admin');
+        expect(screen.getByTestId('ProfileCard.firstName')).toHaveValue(
+            'admin',
+        );
         expect(screen.getByTestId('ProfileCard.lastName')).toHaveValue('admin');
     });
 
     test('Должна появиться ошибка', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        );
 
-        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.Error.Paragraph'),
+        ).toBeInTheDocument();
     });
 
     test('Если нет ошибок валидации, то на сервер должен уйти PUT запрос', async () => {
         const mockPutReq = jest.spyOn($api, 'put');
         componentRender(<EditableProfileCard id="1" />, options);
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstName'),
+            'user',
+        );
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        );
 
         expect(mockPutReq).toHaveBeenCalled();
     });
