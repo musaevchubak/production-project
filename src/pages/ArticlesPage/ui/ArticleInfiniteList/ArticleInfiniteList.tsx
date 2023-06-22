@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleList } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import {
     getArticlePageError,
