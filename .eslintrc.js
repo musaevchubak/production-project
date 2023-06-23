@@ -61,7 +61,9 @@ module.exports = {
                     'direction',
                     'gap',
                     'border',
-                    'feature'
+                    'feature',
+                    'color',
+                    'variant',
                 ],
             },
         ],
@@ -97,7 +99,7 @@ module.exports = {
             },
         ],
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
-        'react/no-unstable-nested-components': 'warn'
+        'react/no-unstable-nested-components': 'warn',
     },
     globals: {
         __IS_DEV__: true,
