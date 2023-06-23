@@ -6,9 +6,9 @@ import { ArticleList } from '@/entities/Article';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import {
-    getArticlePageError,
-    getArticlePageIsLoading,
-    getArticlePageView,
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 
 interface ArticleInfiniteListProps {
@@ -19,9 +19,9 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlePageIsLoading);
-    const view = useSelector(getArticlePageView);
-    const error = useSelector(getArticlePageError);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const view = useSelector(getArticlesPageView);
+    const error = useSelector(getArticlesPageError);
     const [searchParams] = useSearchParams();
 
     if (error) {

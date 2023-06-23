@@ -1,19 +1,18 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ArticleViewSelector } from './ArticleViewSelector';
+import { StickyContentLayout } from './StickyContentLayout';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-    title: 'features/ArticleViewSelector',
-    component: ArticleViewSelector,
+    title: 'shared/StickyContentLayout',
+    component: StickyContentLayout,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleViewSelector>;
+} as ComponentMeta<typeof StickyContentLayout>;
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => (
-    <ArticleViewSelector {...args} />
+const Template: ComponentStory<typeof StickyContentLayout> = (args) => (
+    <StickyContentLayout {...args} />
 );
 
 export const Normal = Template.bind({});
