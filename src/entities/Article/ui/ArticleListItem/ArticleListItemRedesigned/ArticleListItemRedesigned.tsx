@@ -55,8 +55,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             >
                 <VStack max gap="16">
                     <HStack gap="8">
-                        <Avatar size={32} src={article.user?.avatar ?? ''} />
-                        <Text bold text={article.user?.userName} />
+                        {userInfo}
                         <Text text={article.createdAt} />
                     </HStack>
                     <Text title={article.title} bold />
