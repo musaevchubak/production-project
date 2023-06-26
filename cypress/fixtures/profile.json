@@ -7,5 +7,12 @@
     "country": "Ukraine",
     "city": "Moscow",
     "userName": "testuser",
-    "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
+  "C на аватар": "C на аватар",
+  "Cсылка на аватар": "Cсылка на аватар",
+  "Имя пользователя": "Имя пользователя",
+  "Город": "Город",
+  "Возраст": "Возраст",
+  "Фамилия": "Фамилия",
+  "Имя": "Имя"
 }
