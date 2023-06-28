@@ -114,7 +114,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                     <VStack gap="4" className={cls.footer} max>
                         <HStack justify="between" max>
                             <Text
-                                title={article.createdAt}
+                                text={article.createdAt}
                                 className={cls.date}
                             />
                             {views}
