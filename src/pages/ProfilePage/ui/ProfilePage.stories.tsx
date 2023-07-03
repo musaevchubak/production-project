@@ -34,6 +34,7 @@ Normal.decorators = [
                 city: 'asf',
                 currency: Currency.USD,
                 // avatar: 'tests/avatar.jpg',
+                avatar: 'w7.pngwing.com/pngs/984/937/png-transparent-hacker-anonymous-anonymous-hacker-man-hacking-security-computer-dark-identity-spy-thumbnail.png',
             },
         },
     }),
