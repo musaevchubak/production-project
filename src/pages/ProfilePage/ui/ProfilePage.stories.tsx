@@ -33,7 +33,7 @@ Normal.decorators = [
                 first: 'asd',
                 city: 'asf',
                 currency: Currency.USD,
-                avatar: 'tests/avatar.jpg',
+                // avatar: 'tests/avatar.jpg',
             },
         },
     }),
