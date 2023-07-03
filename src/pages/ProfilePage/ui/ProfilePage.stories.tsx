@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import ProfilePage from './ProfilePage';
-import avatar from '@/shared/assets/tests/avatar.jpg';
+// import avatar from '@/shared/assets/tests/avatar.jpg';
 import { Theme } from '@/shared/const /theme';
 
 export default {
@@ -33,7 +33,7 @@ Normal.decorators = [
                 first: 'asd',
                 city: 'asf',
                 currency: Currency.USD,
-                avatar,
+                avatar: 'tests/avatar.jpg',
             },
         },
     }),
