@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-// import avatar from '@/shared/assets/tests/avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
@@ -27,7 +26,6 @@ const primaryArgs = {
         first: 'asd',
         city: 'asf',
         currency: Currency.USD,
-        // avatar: 'tests/avatar.jpeg',
         avatar: 'w7.pngwing.com/pngs/984/937/png-transparent-hacker-anonymous-anonymous-hacker-man-hacking-security-computer-dark-identity-spy-thumbnail.png',
     },
 };

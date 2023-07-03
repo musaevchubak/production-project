@@ -5,7 +5,6 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import ProfilePage from './ProfilePage';
-// import avatar from '@/shared/assets/tests/avatar.jpg';
 import { Theme } from '@/shared/const /theme';
 
 export default {
@@ -33,7 +32,6 @@ Normal.decorators = [
                 first: 'asd',
                 city: 'asf',
                 currency: Currency.USD,
-                // avatar: 'tests/avatar.jpg',
                 avatar: 'w7.pngwing.com/pngs/984/937/png-transparent-hacker-anonymous-anonymous-hacker-man-hacking-security-computer-dark-identity-spy-thumbnail.png',
             },
         },
