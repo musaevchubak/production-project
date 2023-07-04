@@ -7,7 +7,7 @@ import { HStack } from '../../../../redesigned/Stack';
 import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
 import { mapDirectionClass } from '../../styles/consts';
-import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
+import ArrowIcon from '@/shared/static/icons/arrow-bottom.svg';
 import { Icon } from '../../../Icon';
 
 export interface ListBoxItem<T extends string> {

@@ -3,7 +3,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 import { AppImage } from '../../redesigned/AppImage';
 import { Skeleton } from '../Skeleton';
-import UserIcon from '../../../assets/icons/user-filled.svg';
+import UserIcon from '../../../static/icons/user-filled.svg';
 import { Icon } from '../Icon';
 
 // cтили у нас объект во избежание перерисовок нужно юзать memo
