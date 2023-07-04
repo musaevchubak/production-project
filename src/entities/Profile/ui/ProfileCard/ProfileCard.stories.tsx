@@ -26,7 +26,7 @@ const primaryArgs = {
         first: 'asd',
         city: 'asf',
         currency: Currency.USD,
-        avatar: 'w7.pngwing.com/pngs/984/937/png-transparent-hacker-anonymous-anonymous-hacker-man-hacking-security-computer-dark-identity-spy-thumbnail.png',
+        avatar: 'assets/avatar.jpg',
     },
 };
 
