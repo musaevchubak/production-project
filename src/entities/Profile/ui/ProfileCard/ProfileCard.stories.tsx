@@ -26,7 +26,7 @@ const primaryArgs = {
         first: 'asd',
         city: 'asf',
         currency: Currency.USD,
-        avatar: 'assets/avatar.jpg',
+        avatar: 'https://cs10.pikabu.ru/images/community/2064/1605883416236930302.png',
     },
 };
 
