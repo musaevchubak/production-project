@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleListItemRedesigned.module.scss';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import EyeIcon from '@/shared/static/icons/eye.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { ArticleTextBlock } from '../../../model/types/article';
 import { ArticleListItemProps } from '../ArticleListItem';
 import { Card } from '@/shared/ui/redesigned/Card';
