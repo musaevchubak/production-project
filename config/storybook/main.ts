@@ -5,7 +5,7 @@ import { BuildPaths } from '../build/types/config';
 
 export default {
     stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
-    staticDirs: ['./static'],
+    staticDirs: ['./static'], // add
     addons: [
         '@storybook/addon-links',
         {
